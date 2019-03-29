@@ -11,45 +11,17 @@
     </head>
     <body>
         <table class="tg">
-            <tr>
-            <th class="tg-0lax">João Pedro</th>
-            <th class="tg-0lax"><a href="/alterar_pessoas">Editar</a></th>
-            <th class="tg-0lax"><a href="/exibir_mensagem">Excluir</a></th>
-            </tr>
-            <tr>
-            <td class="tg-0lax">Maria</td>
-            <td class="tg-0lax"><a href="/alterar_pessoas">Editar</a></td>
-            <td class="tg-0lax"><a href="/exibir_mensagem">Excluir</a></td>
-            </tr>
-            <tr>
-            <td class="tg-0lax">José</td>
-            <td class="tg-0lax"><a href="/alterar_pessoas">Editar</a></td>
-            <td class="tg-0lax"><a href="/exibir_mensagem">Excluir</a></td>
-            </tr>
+            {%for p in geral: %}
+                <tr>
+                <th class="tg-0lax">{{p.nome}}</th>
+                <th class="tg-0lax"><a href="/alterar_pessoas">Editar</a></th>
+                <th class="tg-0lax"><a href="/excluir_pessoa?nome={{p.nome}}">Excluir</a></th>
+                </tr>
+            {%endfor%}        
         </table> 
         <br>   
-        <hr> 
-
-        <h1>BEM VINDO A AULA JINJA</h1>
-        <h3>Nomes:</h3>
-        {% for p in geral: %} 
-        	<p>Nome: {{p.nome}}</p> <p>  Endereço: {{p.endereco}}</p> <p>   Telefone: {{p.telefone}}</p>
-       		<hr>
-       		<br>
-        {%endfor%}
-
-       
-
-         <h1> Recentes </h1>
-        {% for pessoa in teste:%}
-        	<p>Nome: {{pessoa.nome}}</p>
-        	<p>Endereço: {{pessoa.endereco}}</p>
-        	<p> Telefone: {{pessoa.telefone}}</p>
-        {%endfor%}
-
-
+        <hr>  
         <a href="/inserir_pessoa"> Inserir Pessoas</a> 
         <hr> 
-
     </body>
 </html>

@@ -29,8 +29,11 @@ def inserir_pessoas():
     return render_template("form_inserir_pessoa.html")  
 
 @app.route("/alterar_pessoas")
-def alterar_pessoas():
-    return render_template("form_alterar_pessoa.html")  
+def alterar_pessoa():
+    nome = request.args.get("novo_nome")
+    lista = ([Pessoa(nome,endereco,"23454")])
+    lista_de_pessoas.append(Pessoa(nome,endereco,"23454"))
+    return render_template ("listar_pessoas.html", teste = lista, geral = lista_de_pessoas)
 
 @app.route("/exibir_mensagem")
 def exibir_mensagem():
@@ -44,4 +47,16 @@ def add():
     lista_de_pessoas.append(Pessoa(nome,endereco,"23454"))
     return render_template ("listar_pessoas.html", teste = lista, geral = lista_de_pessoas)
     
+@app.route("/excluir_pessoa")
+def excluir_pessoa():
+    achou = None
+    nome = request.args.get("nome")
+    for p in lista_de_pessoas:
+        if p.nome == nome:
+            achou = p 
+            break
+    if achou != None:
+        lista_de_pessoas.remove(achou) 
+    return render_template("exibir_mensagem.html")
+
 app.run()
