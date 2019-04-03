@@ -57,4 +57,4 @@ def excluir_pessoa():
         lista_de_pessoas.remove(achou) 
     return render_template("exibir_mensagem.html")
 
-app.run()
+app.run(host = "0.0.0.0", debug = True)
