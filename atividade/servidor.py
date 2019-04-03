@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect , url_for
 
 app=Flask(__name__)
 
@@ -43,7 +43,8 @@ def add():
     nome = request.args.get("nome")
     lista = ([Pessoa(nome,endereco,"23454")])
     lista_de_pessoas.append(Pessoa(nome,endereco,"23454"))
-    return render_template ("listar_pessoas.html", teste = lista, geral = lista_de_pessoas)
+    #return render_template ("listar_pessoas.html", teste = lista, geral = lista_de_pessoas)
+    return redirect ( url_for ("listar_pessoas"))
     
 @app.route("/excluir_pessoa")
 def excluir_pessoa():
