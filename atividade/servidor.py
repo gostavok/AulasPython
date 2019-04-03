@@ -13,7 +13,7 @@ class Pessoa:
 lista_de_pessoas=[Pessoa("Joao","Rua da arvore","33447698"),
                   Pessoa("Brisola","Sem casa","2244552367"),
                   Pessoa("Dj guuga","Na sua cama","6783346"),
-                  Pessoa("Kapela","Sem dona","171")]
+                  Pessoa("KAKAU","Sem dona","171")]
 
 
 @app.route("/")
