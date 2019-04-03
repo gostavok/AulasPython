@@ -30,10 +30,8 @@ def inserir_pessoas():
 
 @app.route("/alterar_pessoas")
 def alterar_pessoa():
-    nome = request.args.get("novo_nome")
-    lista = ([Pessoa(nome,endereco,"23454")])
-    lista_de_pessoas.append(Pessoa(nome,endereco,"23454"))
-    return render_template ("listar_pessoas.html", teste = lista, geral = lista_de_pessoas)
+    return render_template("exibir_mensagem.html")    
+
 
 @app.route("/exibir_mensagem")
 def exibir_mensagem():
