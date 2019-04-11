@@ -5,8 +5,9 @@
     </head>
     <body>
         <form action="/alterar_pessoa">
-                Novo nome: <input type="text" name="FirstName"><br>
-                <input type="submit" value="Submit">
+                Novo nome: <input type="text" name="nome" value = {{informacoes.nome}}><br>
+                <input name=nome_original value = {{informacoes.nome}} type = hidden>
+                <button> Alterar </button>
         </form>
     </body>
 </html>

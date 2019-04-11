@@ -14,7 +14,7 @@
             {%for p in geral: %}
                 <tr>
                 <th class="tg-0lax">{{p.nome}}</th>
-                <th class="tg-0lax"><a href="/alterar_pessoas">Editar</a></th>
+                <th class="tg-0lax"><a href="/form_alterar_pessoa?nome={{p.nome}}"><img src=/static/lapis.jpeg></a></th>
                 <th class="tg-0lax"><a href="/excluir_pessoa?nome={{p.nome}}">Excluir</a></th>
                 </tr>
             {%endfor%}        

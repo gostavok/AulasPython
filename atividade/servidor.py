@@ -10,10 +10,7 @@ class Pessoa:
 
 
 
-lista_de_pessoas=[Pessoa("Joao","Rua da arvore","33447698"),
-                  Pessoa("Brisola","Sem casa","2244552367"),
-                  Pessoa("Dj guuga","Na sua cama","6783346"),
-                  Pessoa("Kapelsa","Sem dona","171")]
+lista_de_pessoas=[]
 
 
 @app.route("/")
@@ -22,20 +19,30 @@ def inicio():
 
 @app.route("/listar_pessoas")
 def listar_pessoas():
-    return render_template("listar_pessoas.html",geral = lista_de_pessoas)    
+    return render_template("listar_pessoas.html", geral = lista_de_pessoas)    
 
 @app.route("/inserir_pessoa")
 def inserir_pessoas():
     return render_template("form_inserir_pessoa.html")  
 
-@app.route("/alterar_pessoas")
+@app.route("/form_alterar_pessoa")
+def for_alterar_pessoa():
+    procurado = request.args.get("nome")
+    for pe in lista_de_pessoas:
+        if pe.nome == procurado:
+            return render_template("form_alterar_pessoa.html", informacoes = pe)
+    return "Não achei: " + procurado + " :("
+
+@app.route("/alterar_pessoa")
 def alterar_pessoa():
-    return render_template("exibir_mensagem.html")    
-
-
-@app.route("/exibir_mensagem")
-def exibir_mensagem():
-    return render_template("exibir_mensagem.html")
+    procurado = request.args.get("nome_original")
+    nome = request.args.get("nome")
+    fenix = Pessoa (nome, "rua", "999")
+    for i in range(len(lista_de_pessoas)):
+        if lista_de_pessoas[i].nome == procurado:
+            lista_de_pessoas[i] = fenix
+            return redirect (url_for("listar_pessoas"))
+    return "Não achei: " + procurado + " :("
 
 @app.route("/cadastrar_pessoa")
 def add():
@@ -58,4 +65,4 @@ def excluir_pessoa():
         lista_de_pessoas.remove(achou) 
     return render_template("exibir_mensagem.html")
 
-app.run(host = "0.0.0.0", debug = True)
+app.run( debug = True)
