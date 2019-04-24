@@ -65,4 +65,9 @@ def excluir_pessoa():
         lista_de_pessoas.remove(achou) 
     return render_template("exibir_mensagem.html")
 
+
+@app.route("/form_login")
+def form_login():
+    return render_template("form_login.html")  
+
 app.run( debug = True)
