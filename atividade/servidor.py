@@ -34,10 +34,10 @@ def for_alterar_pessoa():
             return render_template("form_alterar_pessoa.html", informacoes = pe)
     return "Não achei: " + procurado + " :("
 
-@app.route("/alterar_pessoa")
+@app.route("/alterar_pessoa", methods = ['POST'])
 def alterar_pessoa():
-    procurado = request.args.get("nome_original")
-    nome = request.args.get("nome")
+    procurado = request.form["nome_original"]
+    nome = request.form ["nome"]
     fenix = Pessoa (nome, "rua", "999")
     for i in range(len(lista_de_pessoas)):
         if lista_de_pessoas[i].nome == procurado:
@@ -45,10 +45,10 @@ def alterar_pessoa():
             return redirect (url_for("listar_pessoas"))
     return "Não achei: " + procurado + " :("
 
-@app.route("/cadastrar_pessoa")
+@app.route("/cadastrar_pessoa", methods = ['POST'])
 def add():
-    endereco = request.args.get("endereco")
-    nome = request.args.get("nome")
+    endereco = request.form["endereco"]
+    nome = request.form["nome"]
     lista = ([Pessoa(nome,endereco,"23454")])
     lista_de_pessoas.append(Pessoa(nome,endereco,"23454"))
     #return render_template ("listar_pessoas.html", teste = lista, geral = lista_de_pessoas)
@@ -71,10 +71,10 @@ def excluir_pessoa():
 def form_login():
     return render_template("form_login.html")  
 
-@app.route("/login")
+@app.route("/login", methods = ['POST'])
 def login():
-    login = request.args.get("login")
-    senha = request.args.get("senha")
+    login = request.form["login"]
+    senha = request.form["senha"]
     if login == "franke" and senha == "123":
         session ["usuario"] = login
         return redirect("/listar_pessoas")

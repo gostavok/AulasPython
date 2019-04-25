@@ -4,7 +4,7 @@
         <title>Alterar pessoa</title>    
     </head>
     <body>
-        <form action="/alterar_pessoa">
+        <form action="/alterar_pessoa" method = post>
                 Novo nome: <input type="text" name="nome" value = {{informacoes.nome}}><br>
                 <input name=nome_original value = {{informacoes.nome}} type = hidden>
                 <button> Alterar </button>
