@@ -14,6 +14,8 @@
             {%for p in geral: %}
                 <tr>
                 <th class="tg-0lax">{{p.nome}}</th>
+                <th class="tg-0lax">{{p.endereco}}</th>
+                <th class="tg-0lax">{{p.telefone}}</th>
                 {%if session["usuario"]%}
                 <th class="tg-0lax"><a href="/form_alterar_pessoa?nome={{p.nome}}"><img src=/static/lapis.jpeg></a></th>
                 {%endif%}

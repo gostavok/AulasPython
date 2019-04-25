@@ -38,7 +38,9 @@ def for_alterar_pessoa():
 def alterar_pessoa():
     procurado = request.form["nome_original"]
     nome = request.form ["nome"]
-    fenix = Pessoa (nome, "rua", "999")
+    endereco = request.form ["endereco"]
+    telefone = request.form ["telefone"]
+    fenix = Pessoa (nome, endereco, telefone)
     for i in range(len(lista_de_pessoas)):
         if lista_de_pessoas[i].nome == procurado:
             lista_de_pessoas[i] = fenix
@@ -49,11 +51,12 @@ def alterar_pessoa():
 def add():
     endereco = request.form["endereco"]
     nome = request.form["nome"]
-    lista = ([Pessoa(nome,endereco,"23454")])
-    lista_de_pessoas.append(Pessoa(nome,endereco,"23454"))
+    telefone = request.form["telefone"]
+    lista = ([Pessoa(nome,endereco,telefone)])
+    lista_de_pessoas.append(Pessoa(nome,endereco,telefone))
     #return render_template ("listar_pessoas.html", teste = lista, geral = lista_de_pessoas)
     return redirect ( url_for ("listar_pessoas"))
-    
+
 @app.route("/excluir_pessoa")
 def excluir_pessoa():
     achou = None

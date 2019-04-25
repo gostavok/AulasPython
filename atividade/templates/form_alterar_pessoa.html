@@ -5,8 +5,12 @@
     </head>
     <body>
         <form action="/alterar_pessoa" method = post>
-                Novo nome: <input type="text" name="nome" value = {{informacoes.nome}}><br>
-                <input name=nome_original value = {{informacoes.nome}} type = hidden>
+                Novo nome: <input type="text" name="nome" value = "{{informacoes.nome}}"><br>
+                <input name=nome_original value = "{{informacoes.nome}}" type = hidden>
+                Novo endereço: <input type="text" name="endereco" value = "{{informacoes.endereco}}"><br>
+                <input name=endereco_original value = "{{informacoes.endereco}}" type = hidden>
+                Novo telefone: <input type="text" name="telefone" value = "{{informacoes.telefone}}"><br>
+                <input name=telefone_original value = "{{informacoes.telefone}}" type = hidden>
                 <button> Alterar </button>
         </form>
     </body>
