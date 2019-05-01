@@ -9,7 +9,7 @@ class Pessoa:
         self.endereco = endereco
         self.telefone = telefone
 
-#teste
+
 
 lista_de_pessoas=[]
 
