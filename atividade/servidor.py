@@ -11,7 +11,7 @@ class Pessoa:
 
 
 
-lista_de_pessoas=[]
+lista_de_pessoas=[Pessoa("joao","Ruadois","32345676")]
 
 
 @app.route("/")
@@ -78,9 +78,13 @@ def form_login():
 def login():
     login = request.form["login"]
     senha = request.form["senha"]
-    if login == "franke" and senha == "123":
+    if login == "Gustavo" and senha == "123":
         session ["usuario"] = login
         return redirect("/listar_pessoas")
+    elif login == "Carlos" and senha == "123":
+        session ["usuario"] = login
+        return redirect("/listar_pessoas")
+    
     else:
         return "Login/ senha inválida"
 
@@ -89,7 +93,7 @@ def logout():
     session.pop("usuario")
     return redirect("/")
 
-app.run( debug = True)
+app.run(host="0.0.0.0", debug = True)
 
 
 
